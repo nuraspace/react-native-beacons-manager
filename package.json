@@ -1,5 +1,5 @@
 {
-  "name": "@rodrigo-nexudus/react-native-beacons-manager",
+  "name": "@rodrigo7/react-native-beacons-manager",
   "version": "1.0.0",
   "description": "React-Native library for detecting beacons (iOS and Android)",
   "keywords": [
