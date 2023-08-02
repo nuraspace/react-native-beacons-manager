@@ -1,5 +1,5 @@
 {
-  "name": "@rodrigo77777/react-native-beacons-manager",
+  "name": "@rodrigo7/react-native-beacons-manager",
   "dependencies": {},
   "globalDependencies": {
     "node": "registry:dt/node#7.0.0+20170322231424"
