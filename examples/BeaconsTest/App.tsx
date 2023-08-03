@@ -28,6 +28,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Beacons from '@rodrigo7/react-native-beacons-manager';
+import type {Beacon} from '@rodrigo7/react-native-beacons-manager';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -39,11 +40,6 @@ function Section({children, title}: SectionProps): JSX.Element {
   useEffect(() => {
     function checkPermissions() {
       return new Promise<void>(async (resolve, reject) => {
-        /*const hasShownDisclosure = await fetchData('has-shown-disclosure');
-      if (!hasShownDisclosure) return reject();*/
-
-        //const apiLevel = await DeviceInfo.getApiLevel();
-
         const locationGranted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         );
@@ -58,6 +54,7 @@ function Section({children, title}: SectionProps): JSX.Element {
           locationGranted === PermissionsAndroid.RESULTS.GRANTED
         )
           resolve();
+        else reject();
       });
     }
 
