@@ -384,6 +384,7 @@ public class BeaconsAndroidModule extends ReactContextBaseJavaModule {
   }
 
   private Region createRegion(String regionId, String beaconUuid) {
+      Log.d(LOG_TAG, "Creating following region - Region Id: " + regionId + ", Beacon UUID: " + beaconUuid);
       Identifier id1 = (beaconUuid == null) ? null : Identifier.parse(beaconUuid);
       return new Region(regionId, id1, null, null);
   }

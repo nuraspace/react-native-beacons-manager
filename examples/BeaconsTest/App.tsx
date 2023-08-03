@@ -63,7 +63,6 @@ function Section({children, title}: SectionProps): JSX.Element {
       //Beacons.detectEstimotes();
       Beacons.startRangingBeaconsInRegion({
         identifier: '',
-        uuid: '790f084c-d069-4a20-8f16-04eea47f4ea2',
       });
 
       Beacons.checkTransmissionSupported().then(res =>
