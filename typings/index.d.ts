@@ -1,6 +1,6 @@
 declare module '@rodrigo7/react-native-beacons-manager' {
 
-  class Beacons {
+  export interface BeaconsManager {
     ///////////////////////////////////////////////////////
     // iOS only
     ///////////////////////////////////////////////////////
@@ -137,38 +137,32 @@ declare module '@rodrigo7/react-native-beacons-manager' {
     ): void;
   }
 
-  const beacons: Beacons;
-  export default beacons;
+  export interface BeaconRegion {
+    identifier: string,
+    uuid: string,
+    minor?: number,
+    major?: number
+  }
 
-  declare namespace Beacons {
-    export interface BeaconRegion {
-      identifier: string,
-      uuid: string,
-      minor?: number,
-      major?: number
-    }
+  export type AuthorizationStatus =
+    | 'authorizedAlways'
+    | 'authorizedWhenInUse'
+    | 'denied'
+    | 'notDetermined'
+    | 'restricted';
 
-    export type AuthorizationStatus =
-      | 'authorizedAlways'
-      | 'authorizedWhenInUse'
-      | 'denied'
-      | 'notDetermined'
-      | 'restricted';
+  export type Beacon = {
+    distance: number;
+    major: number;
+    minor: number;
+    proximity: 'immediate' | 'near' | 'far';
+    rssi: number;
+    uuid: string;
+  }
 
-    export type Beacon = {
-      distance: number;
-      major: number;
-      minor: number;
-      proximity: 'immediate' | 'near' | 'far';
-      rssi: number;
-      uuid: string;
-    }
-
-    export type BeaconRangingResponse = {
-      beacons: Beacon[];
-      identifier: string;
-      uuid: string;
-    }
-
+  export type BeaconRangingResponse = {
+    beacons: Beacon[];
+    identifier: string;
+    uuid: string;
   }
 }
