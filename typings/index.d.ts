@@ -1,6 +1,6 @@
 declare module '@rodrigo7/react-native-beacons-manager' {
 
-  export interface BeaconsManager {
+  export class BeaconsManager {
     ///////////////////////////////////////////////////////
     // iOS only
     ///////////////////////////////////////////////////////
