@@ -1,6 +1,6 @@
 declare module '@rodrigo7/react-native-beacons-manager' {
 
-  export class BeaconsManager {
+  class Beacons {
     ///////////////////////////////////////////////////////
     // iOS only
     ///////////////////////////////////////////////////////
@@ -136,6 +136,9 @@ declare module '@rodrigo7/react-native-beacons-manager' {
       region: BeaconRegion
     ): void;
   }
+
+  const beacons: Beacons;
+  export default beacons;
 
   export interface BeaconRegion {
     identifier: string,
