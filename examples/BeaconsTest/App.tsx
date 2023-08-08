@@ -8,8 +8,6 @@
 import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
-  DeviceEventEmitter,
-  PermissionsAndroid,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -27,8 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Beacons from '@rodrigo7/react-native-beacons-manager';
-import type {Beacon} from '@rodrigo7/react-native-beacons-manager';
+import BeaconService from './BeaconService';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -36,44 +33,6 @@ type SectionProps = PropsWithChildren<{
 
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
-  useEffect(() => {
-    function checkPermissions() {
-      return new Promise<void>(async (resolve, reject) => {
-        const locationGranted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        );
-        const bluetoothScanGranted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
-        );
-        await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT,
-        );
-        if (
-          bluetoothScanGranted === PermissionsAndroid.RESULTS.GRANTED &&
-          locationGranted === PermissionsAndroid.RESULTS.GRANTED
-        )
-          resolve();
-        else reject();
-      });
-    }
-
-    checkPermissions().then(() => {
-      Beacons.detectIBeacons();
-      //Beacons.detectEstimotes();
-      Beacons.startRangingBeaconsInRegion({
-        identifier: '',
-      });
-
-      Beacons.checkTransmissionSupported().then(res =>
-        console.log('transmission supported', res),
-      );
-      DeviceEventEmitter.addListener('beaconsDidRange', data => {
-        console.log(data);
-        data.beacons.map((beacon: Beacon) => {});
-      });
-    });
-  }, []);
 
   return (
     <View style={styles.sectionContainer}>
@@ -105,6 +64,10 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    BeaconService.init();
+  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>

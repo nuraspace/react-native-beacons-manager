@@ -17,7 +17,6 @@
 #import "RNiBeacon.h"
 
 static NSString *const kEddystoneRegionID = @"EDDY_STONE_REGION_ID";
-bool hasListeners = NO;
 
 @interface RNiBeacon() <CLLocationManagerDelegate, ESSBeaconScannerDelegate>
 
@@ -28,15 +27,22 @@ bool hasListeners = NO;
 @end
 
 @implementation RNiBeacon
+{
+  bool hasListeners;
+}
 
 // Will be called when this module's first listener is added.
-- (void)startObserving {
-  hasListeners = YES;
+-(void)startObserving {
+    hasListeners = YES;
+    // Set up any upstream listeners or background tasks as necessary
 }
+
 // Will be called when this module's last listener is removed, or on dealloc.
-- (void)stopObserving {
-  hasListeners = NO;
+-(void)stopObserving {
+    hasListeners = NO;
+    // Remove upstream listeners, stop unnecessary background tasks
 }
+
 
 RCT_EXPORT_MODULE()
 
@@ -358,8 +364,8 @@ RCT_EXPORT_METHOD(shouldDropEmptyRanges:(BOOL)drop)
                           @"beacons": beaconArray
                           };
 
-    if (self.bridge && hasListeners) {
-      [self sendEventWithName:@"beaconsDidRange" body:event];
+    if (self.bridge) {
+        [self.bridge.eventDispatcher sendDeviceEventWithName:@"beaconsDidRange" body:event];
     }
 }
 

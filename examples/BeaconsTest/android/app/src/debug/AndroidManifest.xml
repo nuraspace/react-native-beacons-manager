@@ -4,6 +4,19 @@
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
+    <!-- 
+      Line below removes Background Location permission added by one of the SDKs. Permission
+      in unnecessary for app functionality and it was causing issues during app reviews.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"
+                     tools:node="remove" />
+
+    <!--
+      Line below stops conflict with libraries adding permissions for ACCESS_COARSE_LOCATION 
+      and ACCESS_FINE_LOCATION using different "maxSdkVersions".
+      -->
+    <uses-permission-sdk-23 tools:node="removeAll" />
+
     <application
         android:usesCleartextTraffic="true"
         tools:targetApi="28"

@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -35,8 +37,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Ranging iBeacons</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Ranging iBeacons</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Ranging iBeacons</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
