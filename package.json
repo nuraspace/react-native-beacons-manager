@@ -1,6 +1,6 @@
 {
-  "name": "@rodrigo7/react-native-beacons-manager",
-  "version": "1.0.4",
+  "name": "@nuraspace/react-native-beacons-manager",
+  "version": "1.1.1",
   "description": "React-Native library for detecting beacons (iOS and Android)",
   "keywords": [
     "react-native",
@@ -18,16 +18,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodrigo-nexudus/react-native-beacons-manager.git"
+    "url": "git+https://github.com/nuraspace/react-native-beacons-manager.git"
   },
   "typescript": {
     "definition": "typings/index.d.ts"
   },
   "types": "typings/index.d.ts",
   "bugs": {
-    "url": "https://github.com/rodrigo-nexudus/react-native-beacons-manager/issues"
+    "url": "https://github.com/nuraspace/react-native-beacons-manager/issues"
   },
-  "homepage": "https://github.com/rodrigo-nexudus/react-native-beacons-manager#readme",
+  "homepage": "https://github.com/nuraspace/react-native-beacons-manager#readme",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -43,7 +43,7 @@
     "flow": "node_modules/.bin/flow",
     "flow-typed": "node_modules/.bin/flow-typed"
   },
-  "author": "Rodrigo Figueira",
+  "author": "Harvey Connor",
   "license": "MIT",
   "nativePackage": true,
   "devDependencies": {
