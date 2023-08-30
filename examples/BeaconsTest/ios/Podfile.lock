@@ -654,7 +654,7 @@ EXTERNAL SOURCES:
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeBeaconsManager:
-    :path: "../node_modules/@rodrigo7/react-native-beacons-manager"
+    :path: "../node_modules/@nuraspace/react-native-beacons-manager"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 

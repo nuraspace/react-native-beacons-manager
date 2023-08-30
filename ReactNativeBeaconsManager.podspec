@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ReactNativeBeaconsManager"
-  s.version      = "1.1.2"
+  s.version      = "1.1.3"
   s.summary      = "React-Native library for detecting beacons (iOS and Android)"
   s.homepage     = "https://github.com/rodrigo-nexudus/react-native-beacons-manager#readme"
   s.license      = { :type => "MIT" }

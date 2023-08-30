@@ -8,12 +8,12 @@ import {
   Platform,
   NativeEventEmitter,
 } from 'react-native';
-import Beacons from '@rodrigo7/react-native-beacons-manager';
+import Beacons from '@nuraspace/react-native-beacons-manager';
 import type {
   Beacon,
   BeaconRangingResponse,
   BeaconRegion,
-} from '@rodrigo7/react-native-beacons-manager';
+} from '@nuraspace/react-native-beacons-manager';
 
 class BeaconService {
   private static beaconListener: EmitterSubscription | null = null;
